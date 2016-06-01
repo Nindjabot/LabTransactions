@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Transaction</title>
+    </h:head>
+    <h:body>
+        <f:view>
+            <h:form>
+                <h2> 
+                    <h:outputLabel value="Let the fun begin !"/> 
+                </h2>
+                <table>
+                    <tr>
+                        <th align="left">
+                            <h:outputLabel value="Client's name" for="cname"/>
+                        </th>
+                        <th>
+                            <h:inputText id="cname" value="#{megaBean.client.name}" required="true">
+                            </h:inputText>
+                        </th>
+                        <th>
+                            <h:message for="cname" style="color:red" />
+                        </th> 
+                    </tr> 
+                    <tr>
+                        <th align="left">
+                            <h:outputLabel value="Client's pocket" for="pocket"/>
+                        </th>
+                        <th>
+                            <h:inputText id="pocket" value="#{megaBean.client.karman}" required="true">
+                            </h:inputText>
+                        </th>
+                        <th>
+                            <h:message for="pocket" style="color:red" />
+                        </th> 
+                    </tr> 
+                </table>
+                <br/>
+                <br/>
+                
+                <h3> 
+                    <h:outputLabel value="Bank part!"/> 
+                </h3>
+                <table> 
+                    <tr>
+                        <th align="left">
+                            <h:outputLabel value="Bank's cash" for="cash"/>
+                        </th>
+                        <th>
+                            <h:inputText id="cash" value="#{megaBean.bank.clientSchet}" required="true">
+                                <f:validateLongRange minimum="0"/>
+                            </h:inputText>
+                        </th>
+                        <th>
+                            <h:message for="cash" style="color:red" />
+                        </th> 
+                    </tr> 
+                </table>
+                <br/><br/>
+                <h:commandButton  value="First experiment" action="#{megaBean.experiment_number_uno()}"/>
+                <br/>
+                <h:commandButton  value="Second experiment" action="#{megaBean.experiment_number_2()}"/>
+                <br/>
+                <h:commandButton  value="Third experiment" action="#{megaBean.experiment_number_3()}"/>
+                <br/>
+                <h:commandButton  value="Fourth experiment" action="#{megaBean.experiment_number_4()}"/>
+                <br/>
+                <h:commandButton  value="Fifth experiment" action="#{megaBean.experiment_number_5()}"/>
+            </h:form> 
+        </f:view>
+    </h:body>
+</html>
+

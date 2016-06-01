@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ace="http://www.icefaces.org/icefaces/components">
+    <h:head>
+        <title>Main trans</title>
+    </h:head>
+    <h:body>
+        <f:view> 
+            <tr> 
+            </tr> 
+            <h:form> 
+                <h2> 
+                    <h:outputLabel value="Clients"/> 
+                </h2> 
+                <ace:dataTable value="#{clientBean.allClients}"
+                               var="cl"
+                               stateMap="#{clientBean.stateMap}"  
+                               selectionMode="multiple"> 
+                    <ace:column headerText="Id" sortBy="#{cl.idClient} "
+                                rendered ="true" filterBy="#{cl.idClient}" filterMatchMode="contains">
+                        <h:outputText value="#{cl.idClient}"/>
+                    </ace:column>
+                    <ace:column headerText="Name" sortBy="#{cl.name}"
+                                filterBy="#{cl.name}" filterMatchMode="contains">
+                        <h:outputText value="#{cl.name}"/>
+                    </ace:column>
+                    <ace:column headerText="Pocket" sortBy="#{cl.karman}"
+                                filterBy="#{cl.karman}" filterMatchMode="contains">
+                        <h:outputText value="#{cl.karman}"/>
+                    </ace:column>
+                </ace:dataTable>
+                <br/><br/>
+                <h:commandButton value="Delete clients" actionListener="#{clientBean.actionListener}"/> 
+                <br/><br/>
+                <h:commandButton value="To the fun page" action="/funpage.xhtml"/>
+                <br/><br/>
+                <br/><br/>
+                <h2> 
+                    <h:outputLabel value="Banks"/> 
+                </h2> 
+                <ace:dataTable value="#{bankBean.allBanks}"
+                               var="ba"
+                               stateMap="#{bankBean.stateMap}"  
+                               selectionMode="multiple"> 
+                    <ace:column headerText="Id" sortBy="#{ba.idBank} "
+                                rendered ="true" filterBy="#{ba.idBank}" filterMatchMode="contains">
+                        <h:outputText value="#{ba.idBank}"/>
+                    </ace:column>
+                    <ace:column headerText="Client name" sortBy="#{ba.clientName}"
+                                filterBy="#{ba.clientName}" filterMatchMode="contains">
+                        <h:outputText value="#{ba.clientName}"/>
+                    </ace:column>
+                    <ace:column headerText="Cash" sortBy="#{ba.clientSchet}"
+                                filterBy="#{ba.clientSchet}" filterMatchMode="contains">
+                        <h:outputText value="#{ba.clientSchet}"/>
+                    </ace:column>
+                </ace:dataTable>
+                <br/><br/>
+                <h:commandButton value="Delete banks" actionListener="#{bankBean.actionListener}"/> 
+            </h:form> 
+        </f:view> 
+    </h:body>
+</html>
+
